@@ -8,8 +8,8 @@ const textInput = document.getElementById("text-input")
 // }
 
 const isPalindrome = (str) => {
-    const clearedString = str.replace(/\W_]/g);
-    return clearedString === clearedString.split('').reverse().join();
+    const clearedString = str.toLowerCase().replace(/[\W_]/g, "");
+    return clearedString === clearedString.split('').reverse().join('');
 }
 
 const showAlert = (message) => {
@@ -19,15 +19,15 @@ const showAlert = (message) => {
 const checkPalindrome = () => {
     const inputText = textInput.value.trim();
     if (inputText === '') {
-        showAlert("Please input text");
+        showAlert("Please input a value");
         return;
     }
 
     const result = isPalindrome(inputText);
     if (result) {
-        resultText.textContent = `${result} is a palindrome`;
+        resultText.textContent = `${inputText} is a palindrome`;
     } else {
-        result.textContent = `${result} is not a palindrome`;
+        resultText.textContent = `${inputText} is not a palindrome`;
     }
 }
 
