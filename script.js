@@ -17,5 +17,18 @@ const showAlert = (message) => {
 }
 
 const checkPalindrome = () => {
+    const inputText = textInput.value.trim();
+    if (inputText === '') {
+        showAlert("Please input text");
+        return;
+    }
 
+    const result = isPalindrome(inputText);
+    if (result) {
+        resultText.textContent = `${result} is a palindrome`;
+    } else {
+        result.textContent = `${result} is not a palindrome`;
+    }
 }
+
+checkButton.addEventListener('click', checkPalindrome);
